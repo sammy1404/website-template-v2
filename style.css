@@ -14,11 +14,12 @@ html {
 }
 
 .light-theme {
-    --background-color: #ffffff;
-    --nav-color: #c1bdbd;
-    --heading-color:rgb(139, 133, 133);
-    --text-color: #000000;
-    --accent-color: rgb(188, 216, 242);
+    --background-color: rgb(165, 195, 226); /* Light background */
+    --nav-color: rgba(121, 150, 180, 0.609); /* Light background */
+    --heading-color: rgb(50, 50, 50); /* Darker text for headings */
+    --text-color: #000000c1; /* Black text */
+    --accent-color: rgb(82, 140, 199); /* A lighter blue accent */
+    
 }
 
 .custom-theme {
@@ -242,6 +243,23 @@ a{
         font-weight: 550;
         color: var(--text-color);
     }
+    .theme svg{
+        stroke: var(--text-color);
+        width: 50px;
+        height: 50px;
+    }
+    
+    button svg{
+        stroke: var(--text-color);
+        width: 50px;
+        height: 50px;
+        stroke-width: 0.05;
+    }
+
+    .row{
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 
@@ -259,7 +277,6 @@ h2{
 
 section{
     height: 100vh;
-    transform: translateY(80px);
 }
 
 
@@ -267,15 +284,46 @@ section{
     stroke: var(--text-color);
 }
 
-.color-pickers{
+button svg{
+    stroke: var(--text-color);
+    fill: var(--text-color);
+    stroke-width: 0.05px;
+}
+
+.color-pickers {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-color);
     align-self: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-
+    overflow: hidden;
+    height: 0;
+    transition: height 0.5s ease-in-out;
+    z-index: 10; /* Ensure it's on top of other elements */
 }
+
+.color-pickers button{
+    stroke: var(--text-color);
+}
+
+.color-pickers.visible {
+    height: 90vh; /* Adjust this value to cover the desired part of the page */
+}
+
+.toggle-color-pickers {
+    font-size: 10px;
+    font-weight: bold;
+    z-index: 3; /* Ensure the button is on top of the color pickers */
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    cursor: pointer;
+}
+
 
 .color-pickers h2{
     font-size: 30px;
@@ -285,11 +333,12 @@ section{
     display: flex;
     gap: 50px;
 }
+
+
 .color-picker-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: fit-content;
 }
 
 @media(max-width:980px){
@@ -453,4 +502,9 @@ section{
     transform: translateY(150px);
     color: var(--text-color);
     font-size: 13px;
+}
+
+
+.toggle-color-pickers{
+    transform: translateY(-5px);
 }
