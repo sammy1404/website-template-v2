@@ -331,7 +331,7 @@ button svg{
 
 .container{
     display: flex;
-    gap: 5px;
+    gap: 50px;
 }
 
 
@@ -353,7 +353,7 @@ button svg{
     .container{
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: 5px
     }
     .previews{
         display: flex;
@@ -395,6 +395,7 @@ button svg{
     outline: none;
     border-radius: 2px;
     height: 50px;
+    width: 50px;
 }
 
 .color-pickers label{
