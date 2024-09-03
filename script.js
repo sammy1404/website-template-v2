@@ -30,3 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+
+
+document.querySelectorAll('.toggle-color-pickers').forEach(button => {
+    button.addEventListener('click', () => {
+        const colorPickers = document.querySelector('.color-pickers');
+        colorPickers.classList.toggle('visible');
+    });
+});
